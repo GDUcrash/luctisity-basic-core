@@ -1,12 +1,14 @@
-import eventManager from "./events/eventManager";
-import { EVENT_PROCESS, EVENT_START, EVENT_TASK_FINISHED, EVOUT_TASK_SCHEDULED, EVOUT_TEST_OBJECT_MOVED } from "./events/events";
-import actionManager from "./actions/actionManager";
-import { ActionExecuteMode } from "./actions/actions";
-import { testObject } from "./objects/testObject";
-import { Id } from "./id/id";
-import { Task } from "./actions/task";
+import eventManager from "./src/events/eventManager";
+import { EVENT_PROCESS, EVENT_START, EVENT_TASK_FINISHED, EVOUT_TASK_SCHEDULED, EVOUT_TEST_OBJECT_MOVED } from "./src/events/events";
+import actionManager from "./src/actions/actionManager";
+import { ActionExecuteMode } from "./src/actions/actions";
+import { testObject } from "./src/objects/testObject";
+import { Id } from "./src/id/id";
+import { Task } from "./src/actions/task";
+import { ScriptRunner } from "./modules/luctisity-evaluator/main";
 
 console.log("Luctisity Basic Core loaded", Id.new());
+console.log(new ScriptRunner(Id.new(), "moment"));
 
 eventManager.in.connect(EVENT_START, () => {
     actionManager.global.queueAction({
