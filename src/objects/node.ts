@@ -1,4 +1,4 @@
-import CoreComponent from "../objectComponenets/coreComponent";
+import GraphicEffectsComponent from "../objectComponenets/graphicEffectsComponent";
 import CoreObject from "./coreObject";
 import Scene from "./scene";
 
@@ -8,7 +8,7 @@ export default class Node extends CoreObject {
 
     constructor (name: string, id?: string) {
         super(name, id);
-        this.components.add(new CoreComponent());
+        this.components.add(new GraphicEffectsComponent());
     }
 
     remove () {

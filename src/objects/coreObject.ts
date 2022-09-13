@@ -1,11 +1,6 @@
 import { Id } from "../id/id";
 import CoreComponent from "../objectComponenets/coreComponent";
-
-export type ComponentMap = {
-    component?:    CoreComponent,
-    clonable?:     any,
-    [key: string]: any
-}
+import { ComponentMap } from "../objectComponenets/componentMap";
 
 export default class CoreObject {
 
