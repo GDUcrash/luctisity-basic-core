@@ -1,3 +1,4 @@
+import Effect from "../classes/Effect";
 import CoreObject from "../objects/coreObject";
 import CoreComponent from "./coreComponent";
 
@@ -6,13 +7,14 @@ type GraphicEffectName = 'hueShift' | 'brightness' | 'contrast' | 'saturation' |
 export default class GraphicEffectsComponent extends CoreComponent {
 
     name: string = 'graphicEffects';
+
     protected effects = {
-        hueShift: 0,
-        brightness: 0,
-        contrast: 0,
-        saturation: 100,
-        pixelate: 0,
-        blur: 0
+        hueShift:   new Effect(0, 0, 256, true),
+        brightness: new Effect(0, -100, 100),
+        contrast:   new Effect(0, -100, 100),
+        saturation: new Effect(100, 0, 200),
+        pixelate:   new Effect(0, 0, 999),
+        blur:       new Effect(0, 0, 999)
     }
 
     constructor (parent?: CoreObject) {
@@ -20,11 +22,11 @@ export default class GraphicEffectsComponent extends CoreComponent {
     }
 
     setEffect (effect: GraphicEffectName, value: number) {
-        this.effects[effect] = value;
+        this.effects[effect].value = value;
     }
 
     getEffect (effect: GraphicEffectName) {
-        return this.effects[effect];
+        return this.effects[effect].value;
     }
 
     getType () {

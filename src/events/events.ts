@@ -17,3 +17,7 @@ export const EVOUT_TEST_OBJECT_MOVED = "testObjectMoved";
 export const EVOUT_NODE_SAY = "nodeSay";
 /** Arguments: target(Node), content(string), inline(boolean) */
 export const EVOUT_NODE_ASK = "nodeAsk";
+/** Arguments: target(Node), sound(Sound), mode(0=normal|1=wait|2=loop|3=stop) */
+export const EVOUT_PLAY_SOUND = "playSound";
+/** Arguments: target(Node) */
+export const EVOUT_STOP_ALL_SOUNDS = "stopAllSounds";
