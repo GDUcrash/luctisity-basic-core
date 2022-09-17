@@ -25,8 +25,8 @@ export default class Scene extends CoreObject {
         this.children = this.children.filter(f => f != node);
     }
 
-    getChild (name: string) {
-        return this.children.find(f => f.id == name);
+    getChild (id: string) {
+        return this.children.find(f => f.id == id);
     }
 
     getType () {

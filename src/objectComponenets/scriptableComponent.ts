@@ -5,13 +5,15 @@ import { Id } from "../id/id";
 
 export default class ScriptableComponent extends CoreComponent {
 
+    name: string = 'scriptable';
+
     protected script: any = null;
 
     private scriptRunner = new ScriptRunner(Id.new(), this.parent?.id);
 
-    constructor (script: any, parent?: CoreObject) {
+    constructor (parent?: CoreObject, script?: any) {
         super(parent);
-        this.script = script;
+        this.script = script || this.script;
         this.scriptRunner.setScript(script);
     }
 

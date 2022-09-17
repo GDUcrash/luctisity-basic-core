@@ -9,7 +9,7 @@ export default class CoreComponent {
         this.parent = parent;
     }
 
-    getType () {
+    getType (): Function {
         return CoreComponent;
     }
 

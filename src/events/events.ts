@@ -21,3 +21,7 @@ export const EVOUT_NODE_ASK = "nodeAsk";
 export const EVOUT_PLAY_SOUND = "playSound";
 /** Arguments: target(Node) */
 export const EVOUT_STOP_ALL_SOUNDS = "stopAllSounds";
+/** Arguments: target(Node), name(string), show(boolean) */
+export const EVOUT_TOGGLE_VAR = "toggleVar";
+/** Arguments: target(Node), name(string), show(boolean) */
+export const EVOUT_TOGGLE_LIST = "toggleVar";
