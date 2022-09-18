@@ -13,15 +13,15 @@ export const EVENT_TASK_FINISHED = "taskFinished";
 export const EVOUT_TASK_SCHEDULED = "taskScheduled";
 /** Arguments: newX(number), newY(number) */
 export const EVOUT_TEST_OBJECT_MOVED = "testObjectMoved";
-/** Arguments: target(Node), content(string), duration(number), think(boolean), wait(boolean) */
+/** Arguments: target(CoreNode), content(string), duration(number), think(boolean), wait(boolean) */
 export const EVOUT_NODE_SAY = "nodeSay";
-/** Arguments: target(Node), content(string), inline(boolean) */
+/** Arguments: target(CoreNode), content(string), inline(boolean) */
 export const EVOUT_NODE_ASK = "nodeAsk";
-/** Arguments: target(Node), sound(Sound), mode(0=normal|1=wait|2=loop|3=stop) */
+/** Arguments: target(CoreNode), sound(Sound), mode(0=normal|1=wait|2=loop|3=stop) */
 export const EVOUT_PLAY_SOUND = "playSound";
-/** Arguments: target(Node) */
+/** Arguments: target(CoreNode) */
 export const EVOUT_STOP_ALL_SOUNDS = "stopAllSounds";
-/** Arguments: target(Node), name(string), show(boolean) */
+/** Arguments: target(CoreNode), name(string), show(boolean) */
 export const EVOUT_TOGGLE_VAR = "toggleVar";
-/** Arguments: target(Node), name(string), show(boolean) */
+/** Arguments: target(CoreNode), name(string), show(boolean) */
 export const EVOUT_TOGGLE_LIST = "toggleVar";

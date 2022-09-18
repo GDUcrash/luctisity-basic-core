@@ -1,9 +1,9 @@
 import CoreObject from "./coreObject";
-import Node from "./node";
+import CoreNode from "./node";
 
 export default class Scene extends CoreObject {
 
-    private children: Node[] = [];
+    private children: CoreNode[] = [];
 
     constructor (name: string, id?: string) {
         super(name, id);
@@ -13,12 +13,12 @@ export default class Scene extends CoreObject {
         return this.children;
     }
 
-    addChild (node: Node) {
+    addChild (node: CoreNode) {
         if (this.children.includes(node)) return;
         this.children.push(node);
     }
 
-    removeChild (node: Node | string) {
+    removeChild (node: CoreNode | string) {
         if (typeof node == 'string')
             node = this.children.find(f => f.id == node)!;
 

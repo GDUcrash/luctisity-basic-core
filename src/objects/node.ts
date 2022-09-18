@@ -5,7 +5,7 @@ import SoundPlayerComponent from "../objectComponenets/soundPlayerComponent";
 import CoreObject from "./coreObject";
 import Scene from "./scene";
 
-export default class Node extends CoreObject {
+export default class CoreNode extends CoreObject {
 
     parent?: Scene = undefined;
 
@@ -23,13 +23,13 @@ export default class Node extends CoreObject {
     }
 
     duplicate () {
-        let clone: Node = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
+        let clone: CoreNode = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
         this.parent?.addChild(clone);
         return clone;
     }
 
     getType () {
-        return Node;
+        return CoreNode;
     }
 
 }
