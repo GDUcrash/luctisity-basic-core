@@ -1,5 +1,4 @@
-import { moveTestObject, wait } from "./testObject/testObjectActions";
-import { say, sayFor, think, thinkFor } from "./nodeActions";
+import { wait, say, sayFor, think, thinkFor, ask } from "./nodeActions";
 
 export enum ActionExecuteMode { INSTANT, TASK }
 
@@ -12,11 +11,11 @@ export type Action = {
 
 const actionsMap: any = {
 
-    moveTestObject: moveTestObject,
-    wait: wait,
+    wait,
 
     say,   sayFor,
-    think, thinkFor
+    think, thinkFor, 
+    ask
 
 }
 

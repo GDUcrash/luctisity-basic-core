@@ -2,7 +2,6 @@ import eventManager from "./src/events/eventManager";
 import { EVENT_PROCESS, EVENT_START, EVENT_TASK_FINISHED, EVOUT_TASK_SCHEDULED, EVOUT_TEST_OBJECT_MOVED } from "./src/events/events";
 import actionManager from "./src/actions/actionManager";
 import { ActionExecuteMode } from "./src/actions/actions";
-import { testObject } from "./src/objects/testObject";
 import { Id } from "./src/id/id";
 import { Task } from "./src/actions/task";
 import { ScriptRunner } from "./modules/luctisity-evaluator/main";
@@ -33,7 +32,7 @@ eventManager.in.connect(EVENT_START, () => {
 });
 
 eventManager.in.connect(EVENT_PROCESS, (delta: number) => {
-    actionManager.global.queueAction({
+    /*actionManager.global.queueAction({
         type: 'moveTestObject',
         target: 'testObject',
         executeMode: ActionExecuteMode.INSTANT,
@@ -41,7 +40,7 @@ eventManager.in.connect(EVENT_PROCESS, (delta: number) => {
             x: testObject.x + 42 * delta, 
             y: testObject.y + 2 * delta 
         }
-    });
+    });*/
     actionManager.global.executeActions();
 });
 

@@ -3,6 +3,11 @@ import { Action } from "./actions";
 import eventManager from "../events/eventManager";
 import { EVOUT_NODE_ASK, EVOUT_NODE_SAY } from "../events/events";
 
+export const wait = (action: Action) => {
+    console.log("waiting " + action.duration + "s...");
+}
+
+
 export const say = (action: Action) => {
     eventManager.out.emit(EVOUT_NODE_SAY, action.target, action.content, action.duration, false, false);
 }
