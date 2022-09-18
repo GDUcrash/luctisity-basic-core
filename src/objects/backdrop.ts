@@ -1,4 +1,4 @@
-import CoreNode from "./node";
+import CoreNode from "./coreNode";
 
 export default class Backdrop extends CoreNode {
 

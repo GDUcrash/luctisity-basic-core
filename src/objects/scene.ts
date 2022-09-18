@@ -1,5 +1,5 @@
 import CoreObject from "./coreObject";
-import CoreNode from "./node";
+import CoreNode from "./coreNode";
 
 export default class Scene extends CoreObject {
 
