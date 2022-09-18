@@ -20,4 +20,8 @@ export default class FrameCollectionComponent extends CoreComponent {
 
     get currentFrame () { return this.collection.currentFrame }
 
+    getType () {
+        return FrameCollectionComponent;
+    }
+
 }
