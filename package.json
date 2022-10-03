@@ -1,12 +1,14 @@
 {
     "name": "luctisity-basic-core",
-    "private": true,
-    "version": "0.0.1",
+    "version": "0.0.6",
     "type": "module",
+    "main": "lib/main.js",
+    "types": "lib/main.d.ts",
     "scripts": {
         "dev": "vite",
-        "build": "tsc && vite build",
-        "preview": "vite preview"
+        "build": "tsc && node moveEvaluatorTemplates.js",
+        "preview": "vite preview",
+        "prepare": "npm run build"
     },
     "repository": {
         "type": "git",
@@ -15,6 +17,7 @@
     "author": "Luctisity",
     "license": "MIT",
     "devDependencies": {
+        "fs-extra": "^10.1.0",
         "typescript": "^4.6.4",
         "vite": "^3.1.0"
     }

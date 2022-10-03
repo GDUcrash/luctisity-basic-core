@@ -1,8 +1,5 @@
-import { EVENT_PROCESS, EVENT_START, EVENT_TASK_FINISHED, EVOUT_TASK_SCHEDULED, EVOUT_TEST_OBJECT_MOVED } from "./events/events";
 import ActionManager from "./actions/actionManager";
-import { ActionExecuteMode } from "./actions/actions";
 import { Id } from "./id/id";
-import { Task } from "./actions/task";
 import EventManager, { EventListenersChannel } from "./events/eventManager";
 
 console.log("Luctisity Basic Core loaded", Id.new());
@@ -20,7 +17,7 @@ export default class LuctisityCore {
 
         // test core code
 
-        this.events.in.connect(EVENT_START, () => {
+        /*this.events.in.connect(EVENT_START, () => {
             this.actions.queueAction({
                 type: 'moveTestObject',
                 target: 'testObject',
@@ -51,7 +48,7 @@ export default class LuctisityCore {
                     x: testObject.x + 42 * delta, 
                     y: testObject.y + 2 * delta 
                 }
-            });*/
+            });
             this.actions.executeActions();
         });
         
@@ -69,7 +66,7 @@ export default class LuctisityCore {
         
         document.onclick = () => {
             this.events.in.emit(EVENT_PROCESS, 1);
-        };
+        };*/
 
     }
     
