@@ -1,4 +1,5 @@
-import { wait, say, sayFor, think, thinkFor, ask } from "./nodeActions";
+import { wait, say, sayFor, think, thinkFor, ask } from "./functions/nodeActions";
+import { play, playAndWait, playAndLoop, stop, stopAllSounds } from "./functions/soundPlayerActions";
 
 export enum ActionExecuteMode { INSTANT, TASK }
 
@@ -13,9 +14,13 @@ const actionsMap: any = {
 
     wait,
 
-    say,   sayFor,
+    say, sayFor,
     think, thinkFor, 
-    ask
+    ask,
+
+    play, playAndWait,
+    playAndLoop, stop,
+    stopAllSounds
 
 }
 

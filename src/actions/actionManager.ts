@@ -1,15 +1,18 @@
-import eventManager from "../events/eventManager";
+import { EventListenersChannel } from "../events/eventManager";
 import { EVOUT_TASK_SCHEDULED, EVENT_TASK_FINISHED } from "../events/events";
 import actionsMap, { Action, ActionExecuteMode } from "./actions";
 import { Task } from "./task";
 
-class ActionManager {
+export default class ActionManager {
 
     currentActions: Action[] = [];
     currentTasks: Set<Task> = new Set();
+    events: EventListenersChannel;
 
-    constructor () {
-        eventManager.in.connect(EVENT_TASK_FINISHED, (task: Task) => {
+    constructor (events: EventListenersChannel) {
+        this.events = events;
+
+        this.events.in.connect(EVENT_TASK_FINISHED, (task: Task) => {
             if (!this.currentTasks.has(task)) return;
 
             this.step(task.actionIndex+1);
@@ -32,7 +35,7 @@ class ActionManager {
         let targetAction = this.currentActions[i];
         let targetFunc = actionsMap[targetAction.type];
 
-        targetFunc(targetAction);
+        targetFunc(targetAction, this.events);
 
         if (targetAction.executeMode == ActionExecuteMode.INSTANT) {
             this.step(i+1);
@@ -40,7 +43,7 @@ class ActionManager {
             let targetTask = new Task(targetAction.type, i, targetAction);
             this.currentTasks.add(targetTask);
 
-            eventManager.out.emit(EVOUT_TASK_SCHEDULED, targetTask);
+            this.events.out.emit(EVOUT_TASK_SCHEDULED, targetTask);
         }
     }
     
@@ -49,8 +52,4 @@ class ActionManager {
         console.log('All current action done!');
     }
 
-}
-
-export default {
-    global: new ActionManager()
 }

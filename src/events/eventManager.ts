@@ -2,7 +2,12 @@ type EventListenersList = {
     [key: string]: Set<Function>
 }
 
-class EventManager {
+export type EventListenersChannel = {
+    in:  EventManager,
+    out: EventManager
+}
+
+export default class EventManager {
 
     listeners: EventListenersList = {};
 
@@ -34,7 +39,7 @@ class EventManager {
 
 }
 
-export default {
+/*export default {
     in:  new EventManager(),
     out: new EventManager()
-};
+};*/

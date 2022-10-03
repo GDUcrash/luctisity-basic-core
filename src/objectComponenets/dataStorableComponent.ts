@@ -1,7 +1,5 @@
 import List, { ListValue } from "../classes/List";
 import Variable, { VariableValue } from "../classes/Variable";
-import eventManager from "../events/eventManager";
-import { EVOUT_TOGGLE_LIST, EVOUT_TOGGLE_VAR } from "../events/events";
 import CoreObject from "../objects/coreObject";
 import CoreComponent from "./coreComponent";
 
@@ -38,14 +36,6 @@ export default class DataStorableComponent extends CoreComponent {
         return this.variables[name].value;
     }
 
-    showVar (name: string) {
-        eventManager.out.emit(EVOUT_TOGGLE_VAR, this.parent, name, true);
-    }
-
-    hideVar (name: string) {
-        eventManager.out.emit(EVOUT_TOGGLE_VAR, this.parent, name, false);
-    }
-
     saveVar (name: string) {
         return name;
         // TODO
@@ -63,14 +53,6 @@ export default class DataStorableComponent extends CoreComponent {
 
     getList (name: string) {
         return this.lists[name].items;
-    }
-
-    showList (name: string) {
-        eventManager.out.emit(EVOUT_TOGGLE_LIST, this.parent, name, true);
-    }
-
-    hideList (name: string) {
-        eventManager.out.emit(EVOUT_TOGGLE_LIST, this.parent, name, false);
     }
 
     saveList (name: string) {
